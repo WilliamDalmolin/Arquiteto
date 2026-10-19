@@ -26,14 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelectorAll("[data-copy-email]").forEach(button => {
-    button.addEventListener("click", async () => {
-      const email = button.getAttribute("data-copy-email");
-      const feedback = button.parentElement.querySelector(".copy-feedback");
+  document.querySelectorAll("[data-copy-email]").forEach(link => {
+    link.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const email = link.getAttribute("data-copy-email");
+      const feedback = link.parentElement.querySelector(".copy-feedback");
+      let copied = false;
       try {
         await navigator.clipboard.writeText(email);
-        if (feedback) feedback.textContent = "E-mail copiado!";
-        button.textContent = "Copiado";
+        copied = true;
       } catch (error) {
         const field = document.createElement("textarea");
         field.value = email;
@@ -42,15 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
         field.style.opacity = "0";
         document.body.appendChild(field);
         field.select();
-        const ok = document.execCommand("copy");
+        copied = document.execCommand("copy");
         field.remove();
-        if (feedback) feedback.textContent = ok ? "E-mail copiado!" : "Selecione e copie o e-mail.";
-        button.textContent = ok ? "Copiado" : "Copiar e-mail";
       }
+      if (feedback) feedback.textContent = copied ? "E-mail copiado!" : "Não foi possível copiar automaticamente.";
+      link.title = copied ? "E-mail copiado!" : "Clique para copiar o e-mail";
       window.setTimeout(() => {
-        button.textContent = "Copiar e-mail";
         if (feedback) feedback.textContent = "";
-      }, 2400);
+        link.title = "Clique para copiar o e-mail";
+      }, 2200);
     });
   });
 });

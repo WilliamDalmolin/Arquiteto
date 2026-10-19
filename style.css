@@ -512,3 +512,123 @@ body { padding-bottom: 52px; }
   .bottom-bar { gap: 8px; }
   .bottom-bar a { font-size: 8px; }
 }
+
+
+/* AJUSTES VISUAIS — CABEÇALHO LIQUID GLASS E RODAPÉ */
+.topbar,
+.topbar.scrolled {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 200;
+  background: rgba(42, 48, 51, 0.34) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  backdrop-filter: blur(18px) saturate(145%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 5px 24px rgba(0, 0, 0, 0.07), inset 0 1px 0 rgba(255,255,255,.10);
+  transition: background .25s ease, height .25s ease, border-color .25s ease;
+}
+.topbar.scrolled {
+  background: rgba(42, 48, 51, 0.48) !important;
+  border-bottom-color: rgba(255,255,255,.28);
+}
+.hero {
+  padding-top: 104px;
+}
+html {
+  scroll-padding-top: 104px;
+}
+
+/* Retira totalmente a tarja inferior antiga */
+.bottom-bar {
+  display: none !important;
+}
+body {
+  padding-bottom: 0 !important;
+}
+.footer {
+  padding-bottom: 40px !important;
+}
+
+/* Identidade do rodapé com a mesma cor discreta de "Voltar ao topo" */
+.footer-brand .brand-copy strong,
+.footer-brand .brand-copy small,
+.footer-brand .brand-divider {
+  color: var(--muted) !important;
+  background-color: var(--muted) !important;
+}
+.footer-brand .brand-copy strong,
+.footer-brand .brand-copy small {
+  background: transparent !important;
+}
+.footer-brand .brand-copy strong {
+  color: var(--muted) !important;
+}
+.footer-brand .brand-copy small {
+  color: var(--muted) !important;
+}
+.footer-note {
+  display: none !important;
+}
+
+/* Foto de formando na trajetória, sem sobrepor títulos ou linha do tempo */
+.career-heading {
+  align-self: start;
+}
+.career-portrait {
+  width: min(100%, 340px);
+  margin: 30px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.career-portrait img {
+  display: block;
+  width: 100%;
+  max-height: 390px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.email-copy-row {
+  display: block;
+}
+.email-copy-row .email-address {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+.email-copy-row .email-address:hover {
+  color: var(--accent);
+}
+.email-copy-row .copy-feedback {
+  display: block;
+  min-height: 14px;
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .topbar,
+  .topbar.scrolled {
+    min-height: 76px;
+    height: 76px;
+    padding: 0 5%;
+  }
+  .hero {
+    padding-top: 76px;
+  }
+  html {
+    scroll-padding-top: 76px;
+  }
+  .career-portrait {
+    width: min(100%, 280px);
+    margin: 24px auto 0;
+  }
+  .career-portrait img {
+    max-height: 330px;
+  }
+}

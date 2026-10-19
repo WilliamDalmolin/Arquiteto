@@ -1,0 +1,28 @@
+DALMOLIN ARQUITETURA — ATUALIZAÇÃO
+
+Arquivos incluídos:
+- index.html
+- style.css
+- script.js
+- projetos-residenciais.html
+- projetos-interiores.html
+- projeto-residencial-01.jpg
+- projeto-residencial-02.jpg
+- projeto-interiores-01.jpg
+- projeto-interiores-02.jpg
+- foto-william-formando.png
+
+COMO PUBLICAR:
+1. Extraia o ZIP.
+2. Envie os arquivos para a raiz do repositório GitHub, substituindo os arquivos com o mesmo nome.
+3. Mantenha também o arquivo capa-residencia.png que já existe no seu repositório. Ele não foi incluído neste pacote porque deve permanecer como está.
+4. Faça Commit changes e aguarde o GitHub Pages publicar.
+5. Atualize o site com Ctrl+F5.
+
+ALTERAÇÕES:
+- Cabeçalho fixo com efeito de vidro acetinado translúcido.
+- Remoção da tarja inferior.
+- E-mail copiado ao clicar no endereço, sem botão adicional.
+- Identidade do rodapé em cor discreta igual ao link "Voltar ao topo".
+- Remoção de "Portfólio profissional · 2026".
+- Foto de formando adicionada à seção Trajetória, em bloco próprio sem sobrepor textos.
