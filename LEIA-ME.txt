@@ -1,19 +1,24 @@
-DALMOLIN ARQUITETURA — PRIMEIRA VERSÃO VISUAL
+DALMOLIN ARQUITETURA — SITE V2
 
-Arquivos:
-- index.html: conteúdo e estrutura do site
-- style.css: identidade visual e layout responsivo
-- script.js: menu mobile
+Arquivos para enviar à raiz do repositório GitHub:
+- index.html (página inicial)
+- style.css (layout e identidade visual)
+- script.js (menu para celular)
+- capa-residencia.png (imagem de capa enviada por você)
+- projetos-residenciais.html e projetos-interiores.html (páginas provisórias de categoria)
 
-Como visualizar:
-1. Extraia todos os arquivos da pasta ZIP.
-2. Abra o arquivo index.html no navegador.
-3. As imagens e fontes são carregadas da internet; conecte-se à internet para visualização completa.
+UPLOAD NO GITHUB
+1. Extraia o ZIP.
+2. No repositório, escolha Add file > Upload files.
+3. Envie os arquivos desta pasta para a raiz, substituindo os arquivos de mesmo nome.
+4. Clique em Commit changes e aguarde o GitHub Pages publicar.
 
-Antes de publicar:
-- Substituir as imagens ilustrativas por fotografias reais dos projetos.
-- Confirmar textos, contatos, formação, datas e níveis de domínio dos softwares.
-- Confirmar os perfis de Instagram e atualizar os links.
-- O site ainda não está hospedado publicamente. A publicação pode ser feita depois na Netlify ou GitHub Pages.
+SOBRE O LINK
+O parâmetro ?utm_source=chatgpt.com é um parâmetro de rastreamento acrescentado ao link compartilhado; ele não faz parte do site e não foi incluído nos arquivos. Para compartilhar a página inicial, use https://williamdalmolin.github.io/WilliamDalmolin/ sem parâmetros. O fragmento #sobre ou #projetos aparece apenas quando se abre diretamente uma seção.
 
-Esta é uma primeira versão de apresentação e currículo digital. O conteúdo foi montado para permitir que o nome evolua futuramente para Dalmolin Arquitetura.
+OBSERVAÇÕES
+- A capa usa a renderização que você enviou, armazenada localmente no pacote, com recorte proporcional (sem esticar a imagem).
+- A imagem de interiores é uma referência temporária e será substituída pela imagem real que você escolher.
+- O e-mail foi mantido exatamente como informado: dalmolin.arq@gamil.com. Confirme se é gamil.com ou gmail.com antes de divulgar.
+- WhatsApp configurado para +55 51 99420-1659.
+- A linha de trajetória e os dados profissionais devem ser conferidos antes de divulgação.
