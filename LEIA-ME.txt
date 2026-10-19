@@ -1,0 +1,19 @@
+DALMOLIN ARQUITETURA — PRIMEIRA VERSÃO VISUAL
+
+Arquivos:
+- index.html: conteúdo e estrutura do site
+- style.css: identidade visual e layout responsivo
+- script.js: menu mobile
+
+Como visualizar:
+1. Extraia todos os arquivos da pasta ZIP.
+2. Abra o arquivo index.html no navegador.
+3. As imagens e fontes são carregadas da internet; conecte-se à internet para visualização completa.
+
+Antes de publicar:
+- Substituir as imagens ilustrativas por fotografias reais dos projetos.
+- Confirmar textos, contatos, formação, datas e níveis de domínio dos softwares.
+- Confirmar os perfis de Instagram e atualizar os links.
+- O site ainda não está hospedado publicamente. A publicação pode ser feita depois na Netlify ou GitHub Pages.
+
+Esta é uma primeira versão de apresentação e currículo digital. O conteúdo foi montado para permitir que o nome evolua futuramente para Dalmolin Arquitetura.
