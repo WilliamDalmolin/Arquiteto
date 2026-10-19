@@ -186,37 +186,329 @@
 }
 
 
-/* FUNDO FIXO GLOBAL — A IMAGEM PERMANECE NO MESMO LUGAR DURANTE O SCROLL */
-html { background: transparent; }
-body { background: transparent; position: relative; isolation: isolate; }
+
+
+/* FUNDO FIXO GLOBAL — camada independente atrás de todo o conteúdo */
+html {
+  background: transparent;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+  position: relative;
+}
+
 .site-background {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   background-image: url("capa-residencia.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
-/* A imagem global substitui a imagem isolada da capa */
-.hero { background: transparent; position: relative; }
-.hero-photo { display: none; }
-.hero-overlay { z-index: 0; }
-/* As seções opacas passam à frente do fundo fixo */
-.about, .projects, .career, .contact, .footer {
+
+/* Coloca o conteúdo do site à frente da imagem fixa */
+.topbar,
+main,
+.footer {
   position: relative;
+  z-index: 1;
+}
+
+/* A imagem da capa não deve duplicar o fundo global */
+.hero {
+  background: transparent;
+  position: relative;
+}
+
+.hero-photo {
+  display: none !important;
+}
+
+.hero-overlay {
+  z-index: 0;
+}
+
+/* Estas seções são as folhas opacas que passam diante do fundo */
+.about,
+.projects,
+.career,
+.contact,
+.footer {
   background-color: var(--paper);
 }
-/* A seção-conceito fica translúcida para revelar a residência no scroll */
+
+/* A faixa de conceito deixa a residência aparecer por trás */
 .statement {
-  background: rgba(233, 226, 215, 0.12);
+  background: rgba(233, 226, 215, 0.18);
   position: relative;
   z-index: 1;
   backdrop-filter: none;
 }
-.credentials { position: relative; z-index: 1; }
+
+/* A faixa de formação continua escura e legível */
+.credentials {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 760px) {
-  .site-background { background-position: 58% center; }
-  .statement { background: rgba(233, 226, 215, 0.16); }
+  .site-background {
+    background-position: 58% center;
+  }
+
+  .statement {
+    background: rgba(233, 226, 215, 0.22);
+  }
+}
+
+
+/* ===== REFINAMENTO GERAL DO PORTFÓLIO ===== */
+:root {
+  --paper: #f4f0e8;
+  --paper-deep: #e9e2d7;
+  --ink: #20211e;
+}
+
+/* Header fixo, legível sobre a capa e sobre as demais seções */
+.topbar {
+  position: fixed !important;
+  inset: 0 0 auto 0;
+  height: 94px;
+  padding: 0 4.5%;
+  display: flex;
+  background: linear-gradient(180deg, rgba(25,29,31,.38), rgba(25,29,31,0));
+  border: 0;
+  backdrop-filter: none;
+  transition: background .25s ease, height .25s ease, backdrop-filter .25s ease;
+  z-index: 100;
+}
+.topbar.scrolled {
+  height: 82px;
+  background: rgba(31, 34, 32, .94);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 14px rgba(0,0,0,.08);
+}
+.brand { min-width: 300px; gap: 14px; }
+.brand-copy strong { font-size: 14px; letter-spacing: 1.5px; }
+.brand-copy small { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,.76); }
+.brand-divider { height: 44px; background: rgba(255,255,255,.78); }
+.main-nav { gap: clamp(18px, 2.1vw, 34px); }
+.main-nav a {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  color: #fff !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.22);
+}
+.top-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid rgba(255,255,255,.72);
+  color: #fff !important;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.top-cta svg {
+  width: 19px; height: 19px; fill: none; stroke: currentColor;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto;
+}
+.top-cta:hover { background: rgba(255,255,255,.12); color: #fff; }
+.menu-toggle { color: #fff; font-size: 28px; }
+html { scroll-padding-top: 100px; }
+section[id] { scroll-margin-top: 100px; }
+main { padding-top: 0; }
+.hero { padding-top: 94px; }
+.hero-content { padding-top: 40px; }
+.eyebrow { font-size: 11px; }
+.hero .eyebrow { font-size: 10px; letter-spacing: 2px; }
+.hero-description { font-size: 16px; max-width: 445px; }
+
+/* Os dois botões da capa têm exatamente o mesmo formato e cor */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 30px;
+}
+.hero-actions .hero-button {
+  width: 310px;
+  min-width: 0;
+  min-height: 56px;
+  padding: 0 24px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--paper);
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.hero-actions .hero-button:hover { background: #fff; border-color: #fff; }
+.hero-actions .hero-button svg {
+  width: 19px; height: 19px; fill: none; stroke: currentColor;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto;
+}
+.hero-actions .hero-button svg .instagram-dot { fill: currentColor; stroke: none; }
+
+/* Imagens quadradas em duas categorias, sem setas */
+.project-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.project-category { min-width: 0; }
+.project-image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.project-image-link {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ddd5c8;
+}
+.project-image-link img {
+  width: 100%; height: 100%; display: block; object-fit: cover;
+  transition: transform .5s ease, filter .35s ease;
+  filter: saturate(.9);
+}
+.project-image-link:hover img { transform: scale(1.035); filter: saturate(1); }
+.project-meta { margin-top: 2px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.project-meta h3 { font-size: 16px; margin-top: 9px; }
+.project-meta small { font-size: 10px; letter-spacing: 1.5px; }
+.project-arrow { display: none !important; }
+.instagram-link { font-size: 11px; }
+.instagram-link svg { width: 18px; height: 18px; }
+
+/* A frase conceitual fica branca e a faixa transparente deixa o fundo aparecer */
+.statement {
+  background: rgba(233, 226, 215, .08) !important;
+  color: #fff;
+  min-height: 390px;
+  text-shadow: 0 1px 12px rgba(0,0,0,.2);
+}
+.statement h2 { color: #fff; }
+.statement-inner > p { color: rgba(255,255,255,.9); }
+
+/* Contato de e-mail com ação de copiar */
+.email-copy-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 0 13px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.contact-aside .email-copy-row > a.email-address {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+.copy-email {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  padding: 7px 9px;
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+.copy-email:hover { background: var(--paper-deep); }
+.copy-feedback { width: 100%; font-size: 10px; color: var(--accent); }
+
+/* Tarja inferior fixa para navegação rápida */
+.bottom-bar {
+  position: fixed;
+  z-index: 90;
+  left: 0; right: 0; bottom: 0;
+  min-height: 52px;
+  padding: 0 3.5%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(244,240,232,.96);
+  border-top: 1px solid rgba(214,207,195,.85);
+  backdrop-filter: blur(12px);
+}
+.bottom-bar a {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 52px; font-size: 11px; font-weight: 600;
+  letter-spacing: 1.1px; text-transform: uppercase;
+}
+.bottom-bar a:hover { color: var(--accent); }
+.bottom-bar svg {
+  width: 17px; height: 17px; fill: none; stroke: currentColor;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
+.bottom-bar .instagram-dot { fill: currentColor; stroke: none; }
+.bottom-bar-divider { height: 24px; width: 1px; background: var(--line); }
+body { padding-bottom: 52px; }
+
+/* Melhor leitura e mais espaço para o cabeçalho fixo */
+.about, .projects, .career, .contact, .credentials, .footer { position: relative; z-index: 1; }
+.about, .projects, .career, .contact, .footer { background: var(--paper); }
+.footer { padding-bottom: 78px; }
+.back-to-top { font-size: 10px; }
+.text-link { font-size: 11px; }
+.text-link span { display: none; }
+.footer-note, .back-to-top { letter-spacing: 1.3px; }
+
+@media (max-width: 1100px) {
+  .brand { min-width: 250px; }
+  .brand-copy strong { font-size: 12px; }
+  .brand-copy small { font-size: 9px; }
+  .main-nav { gap: 16px; }
+  .main-nav a { font-size: 10px; }
+  .top-cta { padding: 0 12px; font-size: 10px; }
+}
+@media (max-width: 760px) {
+  .topbar, .topbar.scrolled { height: 76px; padding: 0 5%; }
+  .brand { min-width: 0; gap: 9px; }
+  .brand-divider { height: 34px; }
+  .brand-copy strong { font-size: 9px; letter-spacing: .8px; }
+  .brand-copy small { font-size: 7px; letter-spacing: 1px; }
+  .topbar .main-nav { display: none; }
+  .topbar .main-nav.open {
+    display: flex; position: absolute; top: 76px; left: 0; right: 0;
+    background: rgba(31,34,32,.97); padding: 22px 7%; z-index: 110;
+    flex-direction: column; align-items: flex-start; gap: 22px;
+  }
+  .topbar .main-nav.open a { color: #fff !important; font-size: 12px; }
+  .top-cta { min-height: 38px; padding: 0 9px; gap: 6px; font-size: 0; letter-spacing: 0; }
+  .top-cta svg { width: 19px; height: 19px; }
+  .menu-toggle { display: block; font-size: 25px; padding: 4px; }
+  .hero { min-height: 700px; height: 100svh; padding-top: 76px; }
+  .hero-content { padding: 80px 6% 35px; margin: 0; }
+  .hero h1 { font-size: clamp(54px, 11vw, 76px); letter-spacing: -3px; }
+  .hero-description { font-size: 14px; }
+  .hero-actions { width: 100%; max-width: 330px; }
+  .hero-actions .hero-button { width: 100%; min-height: 52px; font-size: 10px; }
+  .project-showcase { grid-template-columns: 1fr; gap: 32px; }
+  .project-image-grid { gap: 10px; }
+  .project-meta h3 { font-size: 15px; }
+  .statement { min-height: 340px; padding: 65px 7%; }
+  .statement h2 { font-size: clamp(34px, 8vw, 48px); }
+  .statement-inner > p { font-size: 13px; }
+  .bottom-bar { min-height: 48px; padding: 0 5%; gap: 14px; justify-content: space-between; }
+  .bottom-bar a { min-height: 48px; font-size: 9px; letter-spacing: .7px; }
+  .bottom-bar-divider { height: 20px; }
+  body { padding-bottom: 48px; }
+  .footer { padding-bottom: 76px; }
+}
+@media (max-width: 420px) {
+  .brand-copy strong { font-size: 8px; }
+  .brand-copy small { font-size: 6px; }
+  .topbar { gap: 8px; }
+  .hero h1 { font-size: 52px; }
+  .bottom-bar { gap: 8px; }
+  .bottom-bar a { font-size: 8px; }
 }

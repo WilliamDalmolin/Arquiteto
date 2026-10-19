@@ -1,24 +1,18 @@
-DALMOLIN ARQUITETURA — SITE V2
+DALMOLIN ARQUITETURA — ARQUIVOS ATUALIZADOS
 
-Arquivos para enviar à raiz do repositório GitHub:
-- index.html (página inicial)
-- style.css (layout e identidade visual)
-- script.js (menu para celular)
-- capa-residencia.png (imagem de capa enviada por você)
-- projetos-residenciais.html e projetos-interiores.html (páginas provisórias de categoria)
+Conteúdo:
+- index.html
+- style.css
+- script.js
+- projetos-residenciais.html
+- projetos-interiores.html
+- projeto-residencial-01.jpg
+- projeto-residencial-02.jpg
+- projeto-interiores-01.jpg
+- projeto-interiores-02.jpg
 
-UPLOAD NO GITHUB
-1. Extraia o ZIP.
-2. No repositório, escolha Add file > Upload files.
-3. Envie os arquivos desta pasta para a raiz, substituindo os arquivos de mesmo nome.
-4. Clique em Commit changes e aguarde o GitHub Pages publicar.
-
-SOBRE O LINK
-O parâmetro ?utm_source=chatgpt.com é um parâmetro de rastreamento acrescentado ao link compartilhado; ele não faz parte do site e não foi incluído nos arquivos. Para compartilhar a página inicial, use https://williamdalmolin.github.io/WilliamDalmolin/ sem parâmetros. O fragmento #sobre ou #projetos aparece apenas quando se abre diretamente uma seção.
-
-OBSERVAÇÕES
-- A capa usa a renderização que você enviou, armazenada localmente no pacote, com recorte proporcional (sem esticar a imagem).
-- A imagem de interiores é uma referência temporária e será substituída pela imagem real que você escolher.
-- O e-mail foi mantido exatamente como informado: dalmolin.arq@gamil.com. Confirme se é gamil.com ou gmail.com antes de divulgar.
-- WhatsApp configurado para +55 51 99420-1659.
-- A linha de trajetória e os dados profissionais devem ser conferidos antes de divulgação.
+IMPORTANTE:
+Mantenha o arquivo capa-residencia.png já existente na raiz do repositório. O site usa esse nome para o fundo fixo.
+Envie todos os arquivos deste pacote para a mesma pasta (raiz) do repositório no GitHub.
+Substitua os arquivos index.html, style.css, script.js e as duas páginas de categorias pelos arquivos deste pacote.
+As quatro imagens JPG são novas imagens quadradas da seção Projetos em destaque.
