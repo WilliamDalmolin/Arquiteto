@@ -184,3 +184,39 @@
   .hero h1 { font-size: clamp(53px, 12vw, 64px); }
   .hero-actions { max-width: none; }
 }
+
+
+/* FUNDO FIXO GLOBAL — A IMAGEM PERMANECE NO MESMO LUGAR DURANTE O SCROLL */
+html { background: transparent; }
+body { background: transparent; position: relative; isolation: isolate; }
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("capa-residencia.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+/* A imagem global substitui a imagem isolada da capa */
+.hero { background: transparent; position: relative; }
+.hero-photo { display: none; }
+.hero-overlay { z-index: 0; }
+/* As seções opacas passam à frente do fundo fixo */
+.about, .projects, .career, .contact, .footer {
+  position: relative;
+  background-color: var(--paper);
+}
+/* A seção-conceito fica translúcida para revelar a residência no scroll */
+.statement {
+  background: rgba(233, 226, 215, 0.12);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: none;
+}
+.credentials { position: relative; z-index: 1; }
+@media (max-width: 760px) {
+  .site-background { background-position: 58% center; }
+  .statement { background: rgba(233, 226, 215, 0.16); }
+}
